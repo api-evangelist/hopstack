@@ -1,0 +1,159 @@
+aid: hopstack
+url: https://raw.githubusercontent.com/api-evangelist/hopstack/refs/heads/main/apis.yml
+name: Hopstack
+kind: company
+description: Hopstack is an AI-native, cloud-based warehouse management system (WMS)
+  and fulfillment operations platform that helps warehouses, 3PLs, and e-commerce
+  operators optimize inbound logistics, inventory, order processing, picking,
+  packing, shipping, and returns across channels. Hopstack exposes a documented
+  RESTful API (referenced at apidocs.hopstack.io) for programmatic access to core
+  resources such as orders and consignments, secured with a per-user X-API-Key
+  generated from the Hopstack Dashboard. API access is gated - a customer must
+  contact Hopstack Support to enable API-key generation in the UI - and the full
+  endpoint surface, base URL, and machine-readable specification are published
+  behind that account/partner reference rather than as a fully open catalog.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Warehouse Management
+- WMS
+- Fulfillment
+- Logistics
+- Supply Chain
+- Inventory
+- 3PL
+- E-commerce
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: hopstack:hopstack-orders-api
+  name: Hopstack Orders API
+  tags:
+  - Orders
+  - Fulfillment
+  - Order Management
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://apidocs.hopstack.io/reference
+  properties:
+  - url: https://apidocs.hopstack.io/reference
+    type: APIReference
+  - url: https://apidocs.hopstack.io/
+    type: Documentation
+  - url: https://help.hopstack.io/home/order-management-creating-an-order
+    type: Documentation
+  description: Programmatic access to sales/fulfillment orders - create and manage
+    orders that flow into Hopstack's omnichannel order management and picking,
+    packing, and shipping workflows. Orders is one of the core resources Hopstack
+    documents as available through its REST API. Exact endpoint paths and base URL
+    are published in the account-gated API reference; endpoints modeled here from
+    the public reference and knowledge base.
+- aid: hopstack:hopstack-consignments-api
+  name: Hopstack Consignments API
+  tags:
+  - Consignments
+  - Inbound
+  - Receiving
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://apidocs.hopstack.io/reference
+  properties:
+  - url: https://apidocs.hopstack.io/reference
+    type: APIReference
+  - url: https://apidocs.hopstack.io/
+    type: Documentation
+  - url: https://help.hopstack.io/home/new-design-creating-a-consignment
+    type: Documentation
+  description: Programmatic access to consignments - the inbound/receiving records
+    that bring stock into a Hopstack-managed warehouse. Consignments is explicitly
+    called out alongside orders as a core resource exposed through the Hopstack
+    REST API. Full request/response schemas live in the account-gated reference;
+    endpoints modeled here from the public reference and knowledge base.
+- aid: hopstack:hopstack-inventory-api
+  name: Hopstack Inventory API
+  tags:
+  - Inventory
+  - Stock
+  - Warehouse
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://apidocs.hopstack.io/reference
+  properties:
+  - url: https://apidocs.hopstack.io/reference
+    type: APIReference
+  - url: https://help.hopstack.io/home/inventory-product-documentation
+    type: Documentation
+  description: Inventory and stock-ledger operations for Hopstack's inventory
+    management module - tracking on-hand quantities, locations, and stock movements
+    across warehouses. Modeled from Hopstack's documented WMS modules; specific API
+    endpoints are not confirmed in the public reference (endpoints modeled).
+- aid: hopstack:hopstack-shipments-api
+  name: Hopstack Shipments API
+  tags:
+  - Shipments
+  - Shipping
+  - Carriers
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://apidocs.hopstack.io/reference
+  properties:
+  - url: https://apidocs.hopstack.io/reference
+    type: APIReference
+  - url: https://help.hopstack.io/home/release-inventory-for-shipment-creation-from-stock
+    type: Documentation
+  description: Shipment creation and management tied to Hopstack's picking, packing,
+    and shipping workflows and its multi-carrier integrations (FedEx, UPS, DHL,
+    EasyPost, Shippo, and others). Modeled from Hopstack's documented fulfillment
+    modules; specific API endpoints are not confirmed in the public reference
+    (endpoints modeled).
+- aid: hopstack:hopstack-products-api
+  name: Hopstack Products API
+  tags:
+  - Products
+  - Catalog
+  - SKUs
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://apidocs.hopstack.io/reference
+  properties:
+  - url: https://apidocs.hopstack.io/reference
+    type: APIReference
+  - url: https://apidocs.hopstack.io/
+    type: Documentation
+  description: Product and SKU catalog management underpinning inventory and orders
+    in Hopstack. Modeled from Hopstack's documented WMS data model; specific API
+    endpoints are not confirmed in the public reference (endpoints modeled).
+- aid: hopstack:hopstack-warehouses-api
+  name: Hopstack Warehouses API
+  tags:
+  - Warehouses
+  - Locations
+  - Configuration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://apidocs.hopstack.io/reference
+  properties:
+  - url: https://apidocs.hopstack.io/reference
+    type: APIReference
+  - url: https://help.hopstack.io/home/warehouses-management
+    type: Documentation
+  description: Warehouse and location configuration for multi-warehouse, multi-client
+    (3PL) operations. Modeled from Hopstack's documented warehouse management
+    module; specific API endpoints are not confirmed in the public reference
+    (endpoints modeled).
+common:
+- type: Website
+  url: https://www.hopstack.io/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/hopstack
+- type: Documentation
+  url: https://apidocs.hopstack.io/
+- type: APIReference
+  url: https://apidocs.hopstack.io/reference
+- type: Documentation
+  url: https://help.hopstack.io/
+- type: Integrations
+  url: https://www.hopstack.io/integrations
+- type: Plans
+  url: plans/hopstack-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/hopstack-rate-limits.yml
+- type: FinOps
+  url: finops/hopstack-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,72 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Hopstack
+providerId: hopstack
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Warehouse Management
+- WMS
+- Fulfillment
+- Logistics
+- Plans
+description: >-
+  Hopstack does not publish list pricing. The platform is sold as a quote-based
+  SaaS subscription, typically scoped to the number of warehouses, order /
+  throughput volume, the modules enabled (WMS, inbound, omnichannel order
+  management, analytics), and - for third-party logistics providers - the number
+  of client accounts managed. API access is included as a platform capability for
+  customers rather than sold as a separate metered API product; a customer must
+  contact Hopstack Support to enable X-API-Key generation. No per-call API pricing
+  or free public developer tier is documented.
+notes: >-
+  All pricing is contact-sales / demo-first. There is no documented free API tier
+  or self-service signup for the API. Verify current commercial terms with
+  Hopstack sales during reconciliation.
+sources:
+- https://www.hopstack.io/
+- https://apidocs.hopstack.io/
+- https://help.hopstack.io/home/generating-an-x-api-key-for-an-user
+plans:
+- id: hopstack-custom
+  name: Custom / Contact Sales
+  type: enterprise
+  description: >-
+    Quote-based subscription covering the Hopstack WMS and fulfillment platform,
+    scoped to warehouses, order volume, modules, and (for 3PLs) client accounts.
+    API access via a per-user X-API-Key is included as a platform capability once
+    enabled by Hopstack Support. No published list price.
+  entries:
+  - label: Platform Subscription
+    name: platform_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  - label: API Access
+    name: api_access
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: included with platform subscription (support must enable API keys)
+    userMultiplied: false
+  elements:
+  - name: Warehouse Management (WMS)
+  - name: Inbound Logistics and Returns
+  - name: Omnichannel Order Management
+  - name: Picking, Packing, and Shipping
+  - name: Analytics and Reporting
+  - name: REST API Access (X-API-Key)
+  - name: Pre-Built Integrations (ERP, E-commerce, Carriers)
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

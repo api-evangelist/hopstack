@@ -1,0 +1,51 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Hopstack
+providerId: hopstack
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Warehouse Management
+- WMS
+- Fulfillment
+- Rate Limiting
+- Quotas
+description: >-
+  Hopstack does not publish numeric rate limits for its REST API in open
+  materials. The API is gated behind a per-user X-API-Key that Hopstack Support
+  must enable, and quotas or throttling (if any) are governed by the customer's
+  commercial agreement rather than a published per-minute request cap. Any
+  documented limits, throttling response codes, and retry guidance live in the
+  account/partner API reference at apidocs.hopstack.io, which is not openly
+  scrapeable.
+notes: >-
+  No numeric per-account or per-endpoint API rate limit is documented publicly as
+  of the review date. Standard HTTP 429 handling with exponential backoff and
+  Retry-After is the safe assumption; confirm actual limits with Hopstack during
+  reconciliation.
+sources:
+- https://apidocs.hopstack.io/reference
+- https://help.hopstack.io/home/generating-an-x-api-key-for-an-user
+responseCodes:
+  throttled: 429
+limits:
+- name: REST API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented in open materials; governed by the customer agreement.
+- name: API Key Access
+  scope: account
+  metric: enablement
+  limit: gated
+  notes: API-key generation must be enabled by Hopstack Support before any API calls are possible.
+policies:
+- name: API Key Security
+  description: Keys are shown once at creation and must be stored securely (environment variables); do not share outside the calling microservice.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,110 @@
+aid: hopstack
+name: Hopstack
+review:
+  question: Does Hopstack expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Hopstack's documented API surface is a
+    request/response RESTful HTTP API (referenced at apidocs.hopstack.io),
+    authenticated with a per-user X-API-Key. No server-push transport
+    (WebSocket ws:// / wss:// or Server-Sent Events) is documented on Hopstack's
+    own API, so there is no event-driven surface to model. Real-time behavior in
+    a Hopstack deployment is carried by its downstream integrations (carriers,
+    ERPs, e-commerce platforms) which have their own protocols and are out of
+    scope for a Hopstack AsyncAPI document.
+findings:
+  summary: |
+    Hopstack does not publish a documented public WebSocket API. Hopstack is an
+    AI-native cloud warehouse management system (WMS) and fulfillment operations
+    platform. It exposes a documented RESTful HTTP API - the public reference is
+    at https://apidocs.hopstack.io/reference and explicitly covers core resources
+    including orders and consignments, with request parameters, response schemas,
+    and example payloads. Authentication is a per-user X-API-Key generated in the
+    Hopstack Dashboard (Username -> API Keys -> Create API-KEY) and sent as a
+    request header; the key is displayed once and must be stored securely. The API
+    is request/response REST over HTTPS. No realtime, bidirectional, or streaming
+    WebSocket endpoint is documented anywhere in Hopstack's public materials as of
+    the review date.
+  accessModel: |
+    The Hopstack API is real but access-gated rather than open/self-service. A
+    customer must contact Hopstack Support to enable API-key generation in the UI
+    before keys can be created, so API access is an existing-customer / partner
+    capability. The full endpoint list, base URL, and any machine-readable OpenAPI
+    specification are served behind the account/partner reference; the reference
+    site (apidocs.hopstack.io, built with Scalar) is bot-protected and returns
+    HTTP 403 to automated fetches, so endpoint paths could not be independently
+    confirmed for this review.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    Orders and Consignments are confirmed as documented Hopstack API resources.
+    Inventory, Shipments, Products, and Warehouses are modeled from Hopstack's
+    documented WMS modules and knowledge base, not from confirmed API reference
+    paths. No OpenAPI, Postman collection, or GraphQL schema was created because
+    none could be sourced from public material. Base URLs and exact endpoint
+    paths are intentionally omitted rather than fabricated.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: >-
+        RESTful HTTP API referenced at apidocs.hopstack.io/reference, X-API-Key
+        auth. Base URL not published in open materials.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Hopstack's API reference or knowledge base as of the review date.
+    - protocol: Webhook
+      scheme: https
+      documented: unknown
+      note: >-
+        Hopstack drives many event-style integrations (carriers, ERPs, e-commerce),
+        but no general-purpose public outbound webhook API is documented in the
+        open reference. Not confirmed.
+  authentication:
+    - type: API Key
+      scheme: X-API-Key
+      note: >-
+        Per-user key generated in the Hopstack Dashboard; support must enable
+        API-key access first. Key shown once; store in environment variables.
+  resourcesConfirmed:
+    - Orders
+    - Consignments
+  resourcesModeled:
+    - Inventory
+    - Shipments
+    - Products
+    - Warehouses
+sources:
+  - url: https://apidocs.hopstack.io/reference
+    type: APIReference
+    note: Public Hopstack REST API reference (Scalar). Covers orders and consignments. Bot-protected (403 to automated fetch).
+  - url: https://apidocs.hopstack.io/
+    type: Documentation
+    note: Hopstack API docs guide / landing.
+  - url: https://help.hopstack.io/home/generating-an-x-api-key-for-an-user
+    type: Documentation
+    note: X-API-Key generation steps; support must enable API-key access first.
+  - url: https://help.hopstack.io/home/introduction-to-hopstack-product-documentation
+    type: Documentation
+    note: Product overview and module list (inventory, orders, picking/packing/shipping, inbound/returns, omnichannel, analytics).
+  - url: https://www.hopstack.io/integrations
+    type: Documentation
+    note: Integration catalog (ERP, e-commerce, carriers, EDI, accounting); no open custom-API build instructions on the marketing page.
+  - url: https://www.hopstack.io/
+    type: Website
+    note: Company / product marketing site.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and Hopstack's own public API is
+    request/response REST behind an X-API-Key with gated onboarding. No AsyncAPI
+    document was created because there is no server-push transport on Hopstack's
+    own API to model. The entry documents the API honestly, marking modeled
+    resources and omitting unconfirmed base URLs and endpoint paths.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

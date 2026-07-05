@@ -1,0 +1,94 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Hopstack
+providerId: hopstack
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Warehouse Management
+- WMS
+- Fulfillment
+- Logistics
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Hopstack spend. Hopstack is a quote-based SaaS WMS and
+  fulfillment platform; cost is a negotiated subscription driven by warehouses,
+  order/throughput volume, enabled modules, and 3PL client accounts rather than
+  by metered per-API-call charges. The REST API is included as a platform
+  capability (enabled by support) and is not separately invoiced, so API usage
+  does not map to a distinct line item today. The dominant cost drivers are the
+  platform subscription and the operational scope it covers.
+notes: >-
+  No public per-unit or per-call API rates exist to model; Cloud/API spend is
+  bundled into the subscription. Reconcile actual commercial terms and any
+  volume-based tiers with Hopstack sales.
+sources:
+- https://www.hopstack.io/
+- https://apidocs.hopstack.io/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Hopstack
+serviceCategory: Warehouse Management and Fulfillment
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+focusColumns:
+  ServiceName: Hopstack WMS
+  ServiceCategory: Warehouse Management and Fulfillment
+  ProviderName: Hopstack
+  PublisherName: Hopstack
+  InvoiceIssuerName: Hopstack
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription
+meters:
+- name: platform_subscription
+  description: Negotiated Hopstack platform subscription; the primary invoiced cost.
+  unit: contract
+  aggregation: sum
+  dimensions:
+  - account
+- name: warehouses
+  description: Number of warehouses under management, a common scoping dimension for the subscription.
+  unit: warehouses
+  aggregation: sum
+  dimensions:
+  - account
+- name: order_volume
+  description: Order / fulfillment throughput processed, a likely commercial scaling dimension.
+  unit: orders
+  aggregation: sum
+  dimensions:
+  - account
+  - warehouse
+- name: client_accounts
+  description: For 3PLs, the number of client accounts managed within Hopstack.
+  unit: clients
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track subscription scope (warehouses, modules, client accounts) and order throughput against the negotiated agreement; API usage itself is not separately metered.
+- name: Allocation
+  description: For 3PLs, map warehouses and client accounts to internal cost centers or billed customers.
+- name: Optimization
+  description: Right-size enabled modules and warehouse scope to the operation; use pre-built integrations before commissioning custom API work to avoid engineering cost.
+- name: Accountability
+  description: Assign an owner for the Hopstack contract and review scope/volume against the agreement at renewal.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
