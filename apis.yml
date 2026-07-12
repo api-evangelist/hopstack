@@ -136,6 +136,8 @@ apis:
     module; specific API endpoints are not confirmed in the public reference
     (endpoints modeled).
 common:
+- type: DomainSecurity
+  url: security/hopstack-domain-security.yml
 - type: Website
   url: https://www.hopstack.io/
 - type: LinkedIn
