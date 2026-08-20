@@ -33,6 +33,15 @@ tags:
 - Supply Chain
 - Inventory
 - 3PL
+- E-Commerce
+tags_raw:
+- Warehouse Management
+- WMS
+- Fulfillment
+- Logistics
+- Supply Chain
+- Inventory
+- 3PL
 - E-commerce
 created: '2026-07-05'
 modified: '2026-07-05'
@@ -41,6 +50,10 @@ apis:
 - aid: hopstack:hopstack-orders-api
   name: Hopstack Orders API
   tags:
+  - Order
+  - Fulfillment
+  - Order Management
+  tags_raw:
   - Orders
   - Fulfillment
   - Order Management
@@ -117,6 +130,10 @@ apis:
 - aid: hopstack:hopstack-products-api
   name: Hopstack Products API
   tags:
+  - Product
+  - Catalog
+  - SKUs
+  tags_raw:
   - Products
   - Catalog
   - SKUs
