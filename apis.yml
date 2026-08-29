@@ -12,6 +12,17 @@ description: Hopstack is an AI-native, cloud-based warehouse management system (
   contact Hopstack Support to enable API-key generation in the UI - and the full
   endpoint surface, base URL, and machine-readable specification are published
   behind that account/partner reference rather than as a fully open catalog.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: unknown
