@@ -55,7 +55,7 @@ tags_raw:
 - 3PL
 - E-commerce
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: hopstack:hopstack-orders-api
@@ -188,6 +188,8 @@ apis:
     module; specific API endpoints are not confirmed in the public reference
     (endpoints modeled).
 common:
+- url: https://www.hopstack.io/blogs
+  type: Blog
 - type: DomainSecurity
   url: security/hopstack-domain-security.yml
 - type: Website
