@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/hopstack/integrations
+- https://n8n.io/integrations/hopstack/
+- https://composio.dev/toolkits/hopstack
+- https://monid.ai/tools/hopstack
+checked:
+- https://composio.dev/toolkits/hopstack
+- https://monid.ai/tools/hopstack
+- https://n8n.io/integrations/hopstack/
+- https://zapier.com/apps/hopstack/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
