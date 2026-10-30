@@ -1,4 +1,4 @@
-# Hopstack (hopstack)
+# Hopstack
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,93 +64,109 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hopstack is an AI-native, cloud-based warehouse management system (WMS) and fulfillment operations platform for warehouses, third-party logistics providers (3PLs), and e-commerce operators. It covers inbound logistics and receiving, inventory management, omnichannel order management, picking/packing/shipping, and returns, with analytics on top. Hopstack also ships pre-built integrations for ERPs (NetSuite, SAP, Odoo), e-commerce platforms (Shopify, Amazon, Magento, BigCommerce), and shipping carriers/software (FedEx, UPS, DHL, EasyPost, Shippo).
+Hopstack is an AI-native, cloud-based warehouse management system (WMS) and fulfillment operations platform that helps warehouses, 3PLs, and e-commerce operators optimize inbound logistics, inventory, order processing, picking, packing, shipping, and returns across channels. Hopstack exposes a documented RESTful API (referenced at apidocs.hopstack.io) for programmatic access to core resources such as orders and consignments, secured with a per-user X-API-Key generated from the Hopstack Dashboard. API access is gated - a customer must contact Hopstack Support to enable API-key generation in the UI - and the full endpoint surface, base URL, and machine-readable specification are published behind that account/partner reference rather than as a fully open catalog.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/hopstack/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/hopstack/refs/heads/main/apis.yml)
+**Areas:** Warehouse Management · WMS · Fulfillment · Logistics · Supply Chain · Inventory · 3PL · E-Commerce
 
-## Access Model (Read This First)
+## Hopstack on APIs.io
 
-Hopstack **does** expose a documented, RESTful API. Its public API reference lives at [apidocs.hopstack.io/reference](https://apidocs.hopstack.io/reference) and describes programmatic access to core resources, explicitly including **orders** and **consignments**, with request parameters, response schemas, and example payloads.
+Everything profiled for Hopstack is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hopstack/](https://apis.io/providers/hopstack/)** — or go straight to one of the APIs or properties below.
 
-However, access is **gated**, not fully open:
+### APIs (6)
 
-- **Authentication is a per-user `X-API-Key`**, generated from the Hopstack Dashboard (Username → API Keys → Create API-KEY). The key is shown once and must be stored securely (e.g., an environment variable).
-- **A customer must contact Hopstack Support to enable API-key generation** in the UI before keys can be created. API access is therefore an existing-customer / partner capability rather than an open, self-service developer program.
-- The **base URL, complete endpoint list, and any machine-readable OpenAPI specification** are served behind the account/partner reference and are not published as an open, scrapeable catalog. The reference site is bot-protected (returns HTTP 403 to automated fetches).
+- [Hopstack Orders API](https://apis.io/apis/hopstack/hopstack-orders-api/) — Programmatic access to sales/fulfillment orders - create and manage orders that flow into Hopstack's omnichannel order management and picking, packing, and…
+- [Hopstack Consignments API](https://apis.io/apis/hopstack/hopstack-consignments-api/) — Programmatic access to consignments - the inbound/receiving records that bring stock into a Hopstack-managed warehouse. Consignments is explicitly called…
+- [Hopstack Inventory API](https://apis.io/apis/hopstack/hopstack-inventory-api/) — Inventory and stock-ledger operations for Hopstack's inventory management module - tracking on-hand quantities, locations, and stock movements across…
+- [Hopstack Shipments API](https://apis.io/apis/hopstack/hopstack-shipments-api/) — Shipment creation and management tied to Hopstack's picking, packing, and shipping workflows and its multi-carrier integrations (FedEx, UPS, DHL, EasyPost,…
+- [Hopstack Products API](https://apis.io/apis/hopstack/hopstack-products-api/) — Product and SKU catalog management underpinning inventory and orders in Hopstack. Modeled from Hopstack's documented WMS data model; specific API endpoints…
+- [Hopstack Warehouses API](https://apis.io/apis/hopstack/hopstack-warehouses-api/) — Warehouse and location configuration for multi-warehouse, multi-client (3PL) operations. Modeled from Hopstack's documented warehouse management module;…
 
-Because of this, the APIs below are documented **honestly**: **Orders** and **Consignments** are confirmed as documented API resources; **Inventory**, **Shipments**, **Products**, and **Warehouses** are modeled from Hopstack's documented WMS modules and are marked as `endpointsModeled` (their exact API paths are not confirmed in the public reference). No OpenAPI, Postman collection, or GraphQL schema is included, because none could be sourced from public material.
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Warehouse Management
-- WMS
-- Fulfillment
-- Logistics
-- Supply Chain
-- Inventory
-- 3PL
-- E-commerce
+#### Security (1)
 
-## Timestamps
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+- [Hopstack Domain Security](https://apis.io/security/hopstack/hopstack-domain-security/)
 
-## APIs
+#### Plans and pricing (1)
 
-### Hopstack Orders API
+Published plans, tiers and prices.
 
-Programmatic access to sales/fulfillment orders that flow into Hopstack's omnichannel order management and picking, packing, and shipping workflows. Confirmed as a core resource of the Hopstack REST API. Exact endpoint paths and base URL are in the account-gated reference.
+- [Hopstack Plans Pricing](https://apis.io/plans/hopstack/hopstack-plans-pricing/)
 
-- **API Reference:** [https://apidocs.hopstack.io/reference](https://apidocs.hopstack.io/reference)
+#### Rate limits (1)
 
-### Hopstack Consignments API
+Published request limits.
 
-Programmatic access to consignments — the inbound/receiving records that bring stock into a Hopstack-managed warehouse. Confirmed alongside orders as a core resource of the Hopstack REST API.
+- [Hopstack Rate Limits](https://apis.io/rate-limits/hopstack/hopstack-rate-limits/)
 
-- **API Reference:** [https://apidocs.hopstack.io/reference](https://apidocs.hopstack.io/reference)
+#### FinOps (1)
 
-### Hopstack Inventory API
+What the API costs to run, by operation.
 
-Inventory and stock-ledger operations across warehouses. Modeled from Hopstack's inventory management module (endpoints modeled — not confirmed in the public reference).
+- [Hopstack Finops](https://apis.io/finops/hopstack/hopstack-finops/)
 
-- **API Reference:** [https://apidocs.hopstack.io/reference](https://apidocs.hopstack.io/reference)
+## Where to find this API
 
-### Hopstack Shipments API
-
-Shipment creation and management tied to fulfillment workflows and multi-carrier integrations. Modeled from Hopstack's shipping module (endpoints modeled — not confirmed in the public reference).
-
-- **API Reference:** [https://apidocs.hopstack.io/reference](https://apidocs.hopstack.io/reference)
-
-### Hopstack Products API
-
-Product and SKU catalog management underpinning inventory and orders. Modeled from Hopstack's WMS data model (endpoints modeled — not confirmed in the public reference).
-
-- **API Reference:** [https://apidocs.hopstack.io/reference](https://apidocs.hopstack.io/reference)
-
-### Hopstack Warehouses API
-
-Warehouse and location configuration for multi-warehouse, multi-client (3PL) operations. Modeled from Hopstack's warehouse management module (endpoints modeled — not confirmed in the public reference).
-
-- **API Reference:** [https://apidocs.hopstack.io/reference](https://apidocs.hopstack.io/reference)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.hopstack.io/)
-- [LinkedIn](https://www.linkedin.com/company/hopstack)
-- [API Docs](https://apidocs.hopstack.io/)
-- [API Reference](https://apidocs.hopstack.io/reference)
-- [Knowledge Base](https://help.hopstack.io/)
-- [Integrations](https://www.hopstack.io/integrations)
-- [Plans](plans/hopstack-plans-pricing.yml)
-- [Rate Limits](rate-limits/hopstack-rate-limits.yml)
-- [Fin Ops](finops/hopstack-finops.yml)
+- [Documentation](https://apidocs.hopstack.io/)
+- [API reference](https://apidocs.hopstack.io/reference)
+- [Blog](https://www.hopstack.io/blogs)
 
-## Pricing
+## API Evangelist rating
 
-Hopstack does not publish list pricing. Plans are quote-based / contact-sales, typically scoped to warehouse count, order/throughput volume, modules, and 3PL client count. See `plans/hopstack-plans-pricing.yml`.
+**Kin Score 10.4** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 5.3 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hopstack/](https://apis.io/providers/hopstack/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hopstack: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hopstack/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
